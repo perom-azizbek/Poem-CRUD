@@ -1,11 +1,24 @@
 package com.example.poemapp.models;
 
+import javax.persistence.*;
+
+@Entity
 public class Poem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String title;
+
+    @Column
     private String description;
+
+    @Column
     private String author;
+
+    @Column
     private String image;
 
     //GET id
