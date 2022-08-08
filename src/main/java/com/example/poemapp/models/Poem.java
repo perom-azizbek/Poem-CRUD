@@ -1,5 +1,5 @@
 package com.example.poemapp.models;
-
+//test push
 public class Poem {
 
     private int id;
@@ -35,7 +35,7 @@ public class Poem {
         this.description = description;
     }
 
-    //Get author
+    //GET author
     public String getAuthor() {
         return author;
     }
@@ -44,7 +44,7 @@ public class Poem {
         this.author = author;
     }
 
-    //Get image
+    //GET image
     public String getImage() {
         return image;
     }
