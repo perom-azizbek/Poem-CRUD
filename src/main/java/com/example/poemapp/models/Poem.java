@@ -19,7 +19,7 @@ public class Poem {
     private String author;
 
     @Column
-    private String image;
+    private int year;
 
     //GET id
     public int getId() {
@@ -57,13 +57,13 @@ public class Poem {
         this.author = author;
     }
 
-    //GET image
-    public String getImage() {
-        return image;
+    //GET year
+    public int getYear() {
+        return year;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setYear(int year) {
+        this.year = year;
     }
 
 }
