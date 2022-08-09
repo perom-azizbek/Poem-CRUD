@@ -32,4 +32,25 @@ public class Controller {
         poemRepo.save(poem);
         return "Saving!";
     }
+    //UPDATES(PUT) poem with specific id
+    @PutMapping(value = "update/{id}")
+    public String updatePoem(@PathVariable long id, @RequestBody Poem poem) {
+        Poem updatedPoem = poemRepo.findById(id).get();
+        updatedPoem.setTitle(poem.getTitle());
+        updatedPoem.setAuthor(poem.getAuthor());
+        updatedPoem.setDescription(poem.getDescription());
+        updatedPoem.setYear(poem.getYear());
+        poemRepo.save(updatedPoem);
+        return  "Poem updated...";
+    }
+
+    //DELETES poem with specific id
+    @DeleteMapping(value = "/delete/{id}")
+    public String deletePoem(@PathVariable long id) {
+        Poem deletePoem = poemRepo.findById(id).get();
+        poemRepo.delete(deletePoem);
+        return "Poem {id} has been deleted...";
+    }
+
+
 }
