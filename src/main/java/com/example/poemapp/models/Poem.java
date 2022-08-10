@@ -1,8 +1,12 @@
 package com.example.poemapp.models;
 
-import javax.persistence.*;
+import org.w3c.dom.Text;
 
-@Entity
+import javax.persistence.*;
+import javax.websocket.Decoder;
+import javax.websocket.Encoder;
+
+@Entity //creating a table
 public class Poem {
 
     @Id
