@@ -21,28 +21,28 @@ public class Controller {
         return "Welcome";
     }
 
-    //READS(GET) array of data
+    //READS(GET) poems
     @GetMapping(value = "/poems")
     public List<Poem> getPoems() {
         return poemRepo.findAll();
     }
 
-    //CREATES(POST) array of data
+    //CREATES(POST) poem
     @PostMapping(value = "/save")
     public String savePoem(@RequestBody Poem poem) {
         poemRepo.save(poem);
-        return "Saving!";
+        return "Poem saving...";
     }
     //UPDATES(PUT) poem with specific id
     @PutMapping(value = "update/{id}")
     public String updatePoem(@PathVariable long id, @RequestBody Poem poem) {
         Poem updatedPoem = poemRepo.findById(id).get();
         updatedPoem.setTitle(poem.getTitle());
-        updatedPoem.setAuthor(poem.getAuthor());
         updatedPoem.setDescription(poem.getDescription());
+        updatedPoem.setAuthor(poem.getAuthor());
         updatedPoem.setYear(poem.getYear());
         poemRepo.save(updatedPoem);
-        return  "Poem updated...";
+        return "Poem updated...";
     }
 
     //DELETES poem with specific id
@@ -53,6 +53,4 @@ public class Controller {
         long poemId = id;
         return MessageFormat.format("Deleted poem {0}.", poemId);
     }
-
-
 }
