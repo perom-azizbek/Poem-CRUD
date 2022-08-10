@@ -6,6 +6,7 @@ import com.example.poemapp.models.repo.PoemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 @RestController
@@ -49,7 +50,8 @@ public class Controller {
     public String deletePoem(@PathVariable long id) {
         Poem deletePoem = poemRepo.findById(id).get();
         poemRepo.delete(deletePoem);
-        return "Poem {id} has been deleted...";
+        long poemId = id;
+        return MessageFormat.format("Deleted poem {0}.", poemId);
     }
 
 
